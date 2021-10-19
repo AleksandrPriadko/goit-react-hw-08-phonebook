@@ -1,4 +1,4 @@
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { ContactsView } from "views/ContactsView/ContactsView";
 import { RegistrationUserView } from "views/RegistrationView/RegistrationUserView";
 import { UserLoginView } from "views/LoginView/UserLoginView";
@@ -8,14 +8,6 @@ export default function App() {
     <div>
       <div>
         <h1>Phone book of contacts</h1>
-        <ul>
-          <li>
-            <Link to="/register">Sign up</Link>
-          </li>
-          <li>
-            <Link to="/login">Log in</Link>
-          </li>
-        </ul>
       </div>
       <Switch>
         <Route path="/register">

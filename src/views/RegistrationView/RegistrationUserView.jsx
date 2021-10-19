@@ -1,10 +1,15 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { addUsers } from "../../redux/login/loginThunk";
+import { useDispatch } from "react-redux";
 
 export function RegistrationUserView() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [cofirmPassword, setCofirmPassword] = useState("");
+
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     console.log(e.target.name);
@@ -30,6 +35,14 @@ export function RegistrationUserView() {
   };
   const handleSignUp = (e) => {
     e.preventDefault();
+
+    const NEW_USER = {
+      name,
+      email,
+      password,
+    };
+
+    dispatch(addUsers(NEW_USER));
   };
 
   return (
@@ -85,6 +98,8 @@ export function RegistrationUserView() {
 
         <button type="submit">Sign up</button>
       </form>
+      <span>Do you have an existing account? </span>
+      <Link to="/login">Log in.</Link>
     </div>
   );
 }
