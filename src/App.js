@@ -1,15 +1,17 @@
-import { Route, Switch } from "react-router-dom";
-import { ContactsView } from "views/ContactsView/ContactsView";
-import { RegistrationUserView } from "views/RegistrationView/RegistrationUserView";
-import { UserLoginView } from "views/LoginView/UserLoginView";
+//import { Route, Switch } from "react-router-dom";
+//import { ContactsView } from "views/ContactsView/ContactsView";
+//import { RegistrationUserView } from "views/RegistrationView/RegistrationUserView";
+//import { UserLoginView } from "views/LoginView/UserLoginView";
+import { AppBar } from "./views/AppBar";
 
 export default function App() {
   return (
     <div>
-      <div>
-        <h1>Phone book of contacts</h1>
-      </div>
-      <Switch>
+      <AppBar />
+      {/* <Switch>
+        <Route path="/" exact>
+          <AppBar />
+        </Route>
         <Route path="/register">
           <RegistrationUserView />
         </Route>
@@ -19,7 +21,7 @@ export default function App() {
         <Route path="/contacts">
           <ContactsView />
         </Route>
-      </Switch>
+      </Switch> */}
     </div>
   );
 }
