@@ -49,3 +49,15 @@ export function logoutUser() {
       return error;
     });
 }
+export function getUser() {
+  return axios
+    .get("/users/current")
+    .then(function (response) {
+      console.log("Get user", response);
+      return response;
+    })
+    .catch(function (error) {
+      console.log(error);
+      return error;
+    });
+}

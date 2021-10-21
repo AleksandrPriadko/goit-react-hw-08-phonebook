@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { loginUsers } from "../../redux/login/loginThunk";
 import { useDispatch } from "react-redux";
+import { loginUsers } from "../../redux/login/loginThunk";
+//import { getUsers } from "../../redux/login/loginThunk";
 
 export function UserLoginView() {
   const dispatch = useDispatch();

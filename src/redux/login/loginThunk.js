@@ -1,4 +1,4 @@
-import { addUser, loginUser, token, logoutUser } from "./loginApi";
+import { addUser, loginUser, token, logoutUser, getUser } from "./loginApi";
 import {
   addUserRequest,
   addUserSuccess,
@@ -10,18 +10,6 @@ import {
   logoutUserSuccess,
   logoutUserError,
 } from "./loginActions";
-// export function getContacts() {
-//   return function (dispatch) {
-//     dispatch({ type: "GET_CONTACTS_REQUEST" });
-//     return getContact()
-//       .then((data) => {
-//         return data.length > 0 ? dispatch(getContactsSuccess(data)) : null;
-//       })
-//       .catch((error) => {
-//         dispatch({ type: "GET_CONTACTS_FEILURE", payload: error });
-//       });
-//   };
-// }
 
 export function addUsers(user) {
   return function (dispatch) {
@@ -29,7 +17,7 @@ export function addUsers(user) {
     return addUser(user)
       .then(({ data }) => {
         console.log("Sign up thunk", data);
-        //token.set(data.token);
+        token.set(data.token);
         return dispatch(addUserSuccess(data));
       })
       .catch((error) => {
@@ -44,6 +32,7 @@ export function loginUsers(userLogin) {
       .then(({ data }) => {
         console.log("Login thunk", data);
         token.set(data.token);
+        console.log("Token log", data.token);
         return dispatch(loginUserSuccess(data));
       })
       .catch((error) => {
@@ -65,6 +54,20 @@ export function logoutUsers() {
       });
   };
 }
+// export function getUsers() {
+//   return function (dispatch) {
+//     dispatch({ type: "GET_USER_REQUEST" });
+//     return getUser()
+//       .then((response) => {
+//         console.log("Get user thunk", response);
+
+//         dispatch({ type: "GET_USER_SUCCESS", payload: response });
+//       })
+//       .catch((error) => {
+//         dispatch({ type: "GET_USER_FEILURE", payload: error });
+//       });
+//   };
+// }
 
 // export function deleteContacts(id) {
 //   return function (dispatch) {

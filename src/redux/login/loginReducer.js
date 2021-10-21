@@ -1,6 +1,10 @@
 import { combineReducers } from "redux";
 import { createReducer } from "@reduxjs/toolkit";
-import { addUserSuccess, loginUserSuccess } from "./loginActions";
+import {
+  addUserSuccess,
+  loginUserSuccess,
+  logoutUserSuccess,
+} from "./loginActions";
 
 const INITIAL_USER = {
   user: { name: "", email: "" },
@@ -23,25 +27,8 @@ const registr = createReducer(INITIAL_USER, {
     state.token = payload.token;
     state.isLoggedIn = true;
   },
-
-  //[getContactsSuccess]: (_, { payload }) => payload,
-  //   [deleteContactsSuccess]: (state, { payload }) => {
-  //     return state.filter((contact) => contact.id !== payload);
-  //   },
+  [logoutUserSuccess]: (state, _) => [...state, INITIAL_USER],
 });
-// const login = createReducer(INITIAL_USER, {
-//   [loginUserSuccess]: (state, { payload }) => {
-//     console.log("State reduc log", state);
-//     console.log("Payload reduc log", payload);
-//     state.user = payload.user;
-//     state.token = payload.token;
-//     state.isLoggedIn = true;
-//   },
-
-//   //[getContactsSuccess]: (_, { payload }) => payload,
-//   //   [deleteContactsSuccess]: (state, { payload }) => {
-//   //     return state.filter((contact) => contact.id !== payload);
-//   //   },
-// });
+//export { registr };
 
 export default combineReducers({ registr });

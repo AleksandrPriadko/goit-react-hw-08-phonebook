@@ -1,10 +1,10 @@
-import axios from "axios";
+const axios = require("axios").default;
 
-export const BASE_URL = "http://localhost:3001";
+axios.defaults.baseURL = "https://connections-api.herokuapp.com";
 
 export function getContact() {
   return axios
-    .get(`${BASE_URL}/contacts`)
+    .get("/contacts")
     .then((response) => {
       return response.data;
     })
@@ -15,7 +15,7 @@ export function getContact() {
 
 export function addContact(contacts) {
   return axios
-    .post(`${BASE_URL}/contacts`, contacts)
+    .post("/contacts", contacts)
     .then((response) => {
       return response.data;
     })
@@ -25,7 +25,7 @@ export function addContact(contacts) {
 }
 export function deleteContact(id) {
   return axios
-    .delete(`${BASE_URL}/contacts/${id}`)
+    .delete(`/contacts/${id}`)
     .then(() => {
       return;
     })
