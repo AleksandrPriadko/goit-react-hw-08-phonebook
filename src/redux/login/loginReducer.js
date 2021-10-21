@@ -7,8 +7,8 @@ import {
 } from "./loginActions";
 
 const INITIAL_USER = {
-  user: { name: "", email: "" },
-  token: "",
+  user: { name: null, email: null },
+  token: null,
   isLoggedIn: false,
 };
 
@@ -29,6 +29,6 @@ const registr = createReducer(INITIAL_USER, {
   },
   [logoutUserSuccess]: (state, _) => [...state, INITIAL_USER],
 });
-//export { registr };
+export default registr;
 
-export default combineReducers({ registr });
+//export default combineReducers({ registr });
